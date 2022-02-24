@@ -1,0 +1,37 @@
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<div class="text-center">
+    <h1 class="display-4">Manager Employees</h1>
+    <p>Thi WCF</p>
+</div>
+
+
+
+@model IQueryable<Employees>
+
+<table class="table table-hover table-striped">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Department</th>
+            <th scope="col">Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <th scope="row">@item.ID</th>
+    <td>@item.Name</td>
+    <td>@item.Salary</td>
+    <td>@item.Department</td>
+    <td>@item.Phone</td>
+    <td>
+        <button class="btn btn-sm btn-info">View</button>
+        <button class="btn btn-sm btn-warning">Edit</button>
+    </td>
+</tr>}
+    </tbody>
+</table>
