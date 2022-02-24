@@ -8,9 +8,15 @@ namespace ManagerEmployees.Controllers
 {
     public class HomeController : Controller
     {
+    private IStoreRepository repository;
+        public int PageSize = 4;
+        public HomeController(IStoreRepository repo)
+        {
+            repository = repo;
+        }
         public ActionResult Index()
         {
-            return View();
+            return View(repository.Employees);
         }
 
         public ActionResult About()
